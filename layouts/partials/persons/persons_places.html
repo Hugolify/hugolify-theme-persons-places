@@ -6,7 +6,7 @@
     <p>{{ i18n "places.title" $count }}</p>
     <ul>
       {{ range . }}
-        {{ $expertise := partial "func/GetRealplace" . }}
+        {{ $expertise := partial "func/GetRealPlace" . }}
         {{ with $expertise }}
           <li>
             {{- with .Params.image}}
