@@ -1,4 +1,4 @@
-persons_offices:
+persons_places:
   title:
-    one: Bureau
-    other: Bureaux
+    one: Lieu
+    other: Lieux

@@ -1,4 +1,4 @@
-persons_offices:
+persons_places:
   title:
-    one: Office
-    other: Offices
+    one: place
+    other: places
