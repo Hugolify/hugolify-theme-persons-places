@@ -1,13 +1,13 @@
-{{ with .GetTerms "persons_places" }}
-  {{ $count := . | len }}
-  {{ $desktop := site.Params.image.xsmall | default false }}
-  {{ $mobile := site.Params.image.xsmall | default false }}
+{{- with .GetTerms "persons_places" }}
+  {{- $count := . | len -}}
+  {{- $desktop := site.Params.image.xsmall | default false -}}
+  {{- $mobile := site.Params.image.xsmall | default false -}}
   <aside class="list list-places">
     <p>{{ i18n "places.title" $count }}</p>
     <ul>
-      {{ range . }}
-        {{ $expertise := partial "func/GetRealPlace" . }}
-        {{ with $expertise }}
+      {{- range . }}
+        {{- $place := partial "func/GetRealPlace" . -}}
+        {{- with $place }}
           <li>
             {{- with .Params.image}}
               {{ partial "commons/image.html" (dict
@@ -16,18 +16,17 @@
                 "desktop" $desktop
                 "mobile" $mobile
                 "picture_class" "avatar"
-                "crop" "top"
               ) }}
             {{ end -}}
             <div>
               <a href="{{ .Permalink }}">{{ partial "func/PrepareHTML" .Title }}</a>
-              {{ with .Params.address }}
+              {{- with .Params.address }}
                 <br><span>{{ partial "func/PrepareHTML" .city }}, {{ partial "func/PrepareHTML" .country }}</span>
-              {{ end }}
+              {{ end -}}
             </div>
           </li>
-        {{end}}
-      {{end}}
+        {{ end -}}
+      {{ end -}}
     </ul>
   </aside>
-{{ end }}
+{{ end -}}

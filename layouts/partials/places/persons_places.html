@@ -5,10 +5,10 @@
   "slug" .File.TranslationBaseName) -}}
 {{- $pages = sort ($pages) "Params.persons_statutes" -}}
 {{ if $pages }} 
-  <section class="places-persons">
+  <div class="places-persons">
     <div class="container">
       <h2>{{ i18n "places.discover_persons" (dict "Title" (.Title | lower)) }}</h2>
       {{ partial (printf "%s/items" $section) $pages }}
     </div>
-  </section>
+  </div>
 {{ end }}
