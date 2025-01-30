@@ -12,5 +12,7 @@ module:
 # Default
 permalinks:
   persons_places: /team/places/:slug/
+  section:
+    persons_places: /team/places/
 taxonomies:
   persons_place: persons_places
