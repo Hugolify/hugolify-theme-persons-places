@@ -19,9 +19,9 @@
               ) }}
             {{ end -}}
             <div>
-              <a href="{{ .Permalink }}">{{ partial "func/PrepareHTML" .Title }}</a>
+              <a href="{{ .Permalink }}">{{ partial "func/PrepareHTML.html" .Title }}</a>
               {{- with .Params.address }}
-                <br><span>{{ partial "func/PrepareHTML" .city }}, {{ partial "func/PrepareHTML" .country }}</span>
+                <br><span>{{ partial "func/PrepareHTML.html" .city }}, {{ partial "func/PrepareHTML.html" .country }}</span>
               {{ end -}}
             </div>
           </li>
