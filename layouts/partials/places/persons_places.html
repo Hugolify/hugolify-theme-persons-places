@@ -1,14 +1,18 @@
-{{- $section := "persons" -}}
-{{- $pages := partial "func/GetTaxonomyPageBySlug" (dict 
+{{- $section := "persons" }}
+{{- $pages := partial "func/GetPagesFromTaxonomy" (dict
   "section" $section
   "taxonomy" "persons_places"
-  "slug" .File.TranslationBaseName) -}}
-{{- $pages = sort ($pages) "Params.persons_statutes" -}}
-{{ if $pages }} 
+  "slug" .File.TranslationBaseName
+  "title" .Title) 
+}}
+{{- $pages = sort ($pages) "Params.persons_statutes" }}
+
+{{- if $pages }}
   <div class="places-persons">
     <div class="container">
-      <h2>{{ i18n "places.discover_persons" (dict "Title" (.Title | lower)) }}</h2>
+      {{- $title := partial "func/PrepareHTML.html" .Title }}
+      <h2>{{ i18n "places.discover_persons" (dict "Title" ($title | lower)) }}</h2>
       {{ partial (printf "%s/items" $section) $pages }}
     </div>
   </div>
-{{ end }}
+{{- end }}
