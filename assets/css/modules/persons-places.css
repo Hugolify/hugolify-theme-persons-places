@@ -1,0 +1,12 @@
+/* css/modules/persons-places.css — hugolify-theme-persons-places entry point */
+
+/* Tokens */
+@import '../tokens/persons-places.css';
+
+/* Components */
+@import '../components/persons-place.css';
+@import '../components/persons-places.css';
+
+/* Pages */
+@import '../pages/persons-place.css';
+@import '../pages/persons-places.css';
