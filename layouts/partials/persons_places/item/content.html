@@ -1,5 +1,6 @@
-{{ $place := partial "func/GetRealPlace" . }}
+{{- $place := partial "func/GetRealPlace" . }}
 <a href="{{ .Permalink }}" itemprop="url" class="content">
-  {{ partial "places/item/title" $place }}
-  {{ partialCached "commons/item/more" . }}
+  {{ partial "places/item/title.html" $place }}
+  {{ partial "commons/item/result.html" . }}
+  {{ partialCached "commons/item/more.html" . }}
 </a>

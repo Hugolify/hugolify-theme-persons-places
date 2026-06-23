@@ -3,16 +3,15 @@
   "section" $section
   "taxonomy" "persons_places"
   "slug" .File.TranslationBaseName
-  "title" .Title) 
+  "title" .Title)
 }}
 {{- $pages = sort ($pages) "Params.persons_statutes" }}
 
-{{- if $pages }}
-  <div class="places-persons">
-    <div class="container">
-      {{- $title := partial "func/PrepareHTML.html" .Title }}
-      <h2>{{ i18n "places.discover_persons" (dict "Title" ($title | lower)) }}</h2>
-      {{ partial (printf "%s/items" $section) $pages }}
-    </div>
-  </div>
+{{- with $pages }}
+  {{- $title := partial "func/PrepareHTML.html" $.Title }}
+  {{- partial "commons/related.html" (dict
+    "section" $section
+    "pages" .
+    "title" (i18n "places.discover_persons" (dict "Title" ($title | lower)))
+  ) }}
 {{- end }}
