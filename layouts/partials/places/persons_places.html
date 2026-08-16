@@ -5,7 +5,7 @@
   "slug" .File.TranslationBaseName
   "title" .Title)
 }}
-{{- $pages = sort ($pages) "Params.persons_statutes" }}
+{{- $pages = partial "func/GetPersonsOrderByStatutes" $pages }}
 
 {{- with $pages }}
   {{- $title := partial "func/PrepareHTML.html" $.Title }}
