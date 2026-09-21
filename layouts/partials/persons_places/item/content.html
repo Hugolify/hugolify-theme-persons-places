@@ -1,4 +1,4 @@
-{{- $place := partial "func/GetRealPlace" . }}
+{{- $place := partial "func/GetRealPlace.html" . }}
 <a href="{{ .Permalink }}" itemprop="url" class="content">
   {{ partial "places/item/title.html" $place }}
   {{ partial "commons/item/result.html" . }}
